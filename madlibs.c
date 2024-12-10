@@ -4,6 +4,7 @@
 #include <stdio.h>
 void addStrings(char letter);
 void getInput(int numwords, int stringlength, char inwords[][stringlength]);
+void storeWords(int stringlength, int linelength, int numlines, char inwords[][stringlength]);
 void storeFile(FILE* fp, int numlines, int linelength, char filearray[][linelength]);
 void scanLetter(int numwords, int stringlength, char filearray[][stringlength], char inwords[][stringlength]);
 char displayFile(FILE* fp, int numwords, int stringlength, char inwords[][stringlength]);
@@ -26,24 +27,20 @@ char filearray[FILEHEIGHT][FILEWIDTH];
 	
 return 0;
 }
-
 void getInput(int numwords, int stringlength, char inwords[][stringlength]){
-	printf("Please enter an adjective: ");
+	for(int i=0; i<=8; i++){
+	switch(i){
+		case 'N': printf("Please enter a noun: ");
 		scanf("%s", inwords);
-	printf("Please enter a noun: ");
+			break;
+		case 'V':printf("Please enter a verb: ");
 		scanf("%s", inwords);
-	printf("Please enter an adjective: ");
+			break;
+		case 'A':printf("Please enter an adjective: ");
 		scanf("%s", inwords);
-	printf("Please enter a verb: ");
-		scanf("%s", inwords);
-	printf("Please enter a verb: ");
-		scanf("%s", inwords);
-	printf("Please enter an adjective: ");
-		scanf("%s", inwords);
-	printf("Please enter a noun: ");
-		scanf("%s", inwords);
-	printf("Please enter an adjective: ");
-		scanf("%s", inwords);
+			break;
+			}
+	}
 }
 
 void storeFile(FILE* fp, int numlines, int linelength, char filearray[][linelength]){
@@ -53,8 +50,13 @@ void storeFile(FILE* fp, int numlines, int linelength, char filearray[][lineleng
 		}
 	}
 }
-
-
+void storeWords(int stringlength, int linelength, int numlines, char inwords[][stringlength]){
+	for(int i=0; i<linelength; i++){
+		for(int j=0; j<numlines; j++){
+		scanf("%s", inwords[j][i]);
+		}
+	}
+}
 void addStrings(char letter){
 	switch(letter){
 		case 'N':
@@ -64,9 +66,6 @@ void addStrings(char letter){
 		break;
 		case 'A':
 		break;
-	
-	
-	
 	}
 }
 void scanLetter(int numwords, int stringlength, char filearray[][stringlength], char inwords[][stringlength]){
@@ -77,10 +76,9 @@ void scanLetter(int numwords, int stringlength, char filearray[][stringlength], 
 	}
 }
 
-//char displayFile(int numwords, int stringlength, char inwords[][stringlength]){
-	//scanLetter(WORDS, WORDLENGTH, inwords);
-	//printf("%s\n", inwords);
-	//scanf(fp,"%s", &);
-	//return inwords[][stringlength];
-//}
+char displayFile(int numwords, int stringlength, char filearray[][stringlength]){
+	for(int i=0; i=
+	printf("%s\n", filearray);
+	return filearray[][stringlength];
+}
 
